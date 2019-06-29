@@ -1,52 +1,55 @@
 import {graphql, PageRendererProps, useStaticQuery} from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
 
-import {Bio} from '../components/bio';
 import {Layout} from '../components/layout';
-import {FadeLink} from '../components/link';
 import {SEO} from '../components/seo';
-import {MarkdownRemark} from '../graphql-types';
-import {rhythm} from '../utils/typography';
-
-const StyledLink = styled(FadeLink)`
-  box-shadow: none;
-`;
-
-const Title = styled.h3`
-  margin-bottom: ${rhythm(1 / 4)};
-`;
 
 type Props = PageRendererProps;
 
 const BlogIndex = (props: Props) => {
-  const data = useStaticQuery(graphql`
+  const query = graphql`
     query {
       site {
         siteMetadata {
           title
         }
       }
-      allMarkdownRemark(sort: {fields: [frontmatter___date], order: DESC}) {
+      allContentfulCollection {
         edges {
           node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
+            title
+            description
+            projects {
               title
               description
+              images {
+                title
+                file {
+                  url
+                }
+              }
             }
           }
         }
       }
     }
-  `);
+  `;
+
+  const data = useStaticQuery(query);
 
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
+  const collections = data.allContentfulCollection.edges!.map((edge: any) => ({
+    title: edge.node.title,
+    description: edge.node.description,
+    projects: edge.node.projects!.map((project: any) => ({
+      title: project.title,
+      description: project.description,
+      images: project.images!.map((image: any) => ({
+        title: image.title,
+        src: image.file.url,
+      })),
+    })),
+  }));
 
   return (
     <Layout location={props.location} title={siteTitle}>
@@ -54,28 +57,32 @@ const BlogIndex = (props: Props) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <Bio />
-      {posts.map(({node}: {node: MarkdownRemark}) => {
-        const frontmatter = node!.frontmatter!;
-        const fields = node!.fields!;
-        const slug = fields.slug!;
-        const excerpt = node!.excerpt!;
+    <div className="card-deck">
+      {collections.map((c: any) => (
 
-        const title = frontmatter.title || fields.slug;
-        return (
-          <div key={slug}>
-            <Title>
-              <StyledLink to={slug}>{title}</StyledLink>
-            </Title>
-            <small>{frontmatter.date}</small>
-            <p
-              dangerouslySetInnerHTML={{
-                __html: frontmatter.description || excerpt,
-              }}
-            />
-          </div>
-        );
-      })}
+<div className="card" style={{width: '24rem'}}>
+  <img className="card-img-top" style={{maxHeight: 300}} src={c.projects[0].images[0].src} alt="Card image cap" />
+  <div className="card-body">
+    <h5 className="card-title">{c.title}</h5>
+    <p className="card-text">{c.description}</p>
+    <a href="#" className="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+        /* <div style={{maxWidth: '24rem'}} className="d-flex flex-column">
+          <h2>{c.title}</h2>
+          {c.projects.map((p: any) => (
+            <div>
+              <h4>{p.title}</h4>
+              {p.images.map((image: any) => (
+                <img className="img-fluid" src={image.src} alt={image.title} />
+              ))}
+            </div>
+          ))}
+        </div> */
+      ))}
+      </div>
     </Layout>
   );
 };
