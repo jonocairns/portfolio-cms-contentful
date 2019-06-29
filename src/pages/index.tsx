@@ -26,17 +26,12 @@ const BlogIndex = (props: Props) => {
           title
         }
       }
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      allContentfulAsset {
         edges {
           node {
-            excerpt
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MMMM DD, YYYY")
-              title
-              description
+            id
+            file {
+              url
             }
           }
         }
