@@ -1,24 +1,24 @@
-import path from "path"
-import { GatsbyCreatePages } from "../types"
+import path from 'path';
+import {GatsbyCreatePages} from '../types';
 
 interface Post {
   node: {
     fields: {
-      slug: string
-    }
-  }
+      slug: string;
+    };
+  };
 }
 
 export const createPages: GatsbyCreatePages = async ({
   graphql,
   boundActionCreators,
 }) => {
-  const { createPage } = boundActionCreators
+  const {createPage} = boundActionCreators;
 
   const allMarkdown = await graphql(`
     {
       allMarkdownRemark(
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: {fields: [frontmatter___date], order: DESC}
         limit: 1000
       ) {
         edges {
@@ -33,18 +33,18 @@ export const createPages: GatsbyCreatePages = async ({
         }
       }
     }
-  `)
+  `);
 
   if (allMarkdown.errors) {
-    throw allMarkdown.errors
+    throw allMarkdown.errors;
   }
 
   // Create blog posts pages.
-  const posts = allMarkdown.data.allMarkdownRemark.edges
+  const posts = allMarkdown.data.allMarkdownRemark.edges;
 
   posts.forEach((post: Post, index: number) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
 
     createPage({
       path: post.node.fields.slug,
@@ -55,8 +55,8 @@ export const createPages: GatsbyCreatePages = async ({
         previous,
         slug: post.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 
-  return null
-}
+  return null;
+};

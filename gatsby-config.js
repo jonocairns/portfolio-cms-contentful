@@ -1,6 +1,6 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -57,7 +57,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -86,8 +85,8 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
-        downloadLocal: true
+        downloadLocal: true,
       },
-    }
+    },
   ],
-}
+};
