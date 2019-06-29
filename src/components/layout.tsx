@@ -1,22 +1,18 @@
 import 'bootstrap/scss/bootstrap.scss';
-import {PageRendererProps} from 'gatsby';
-import React, {ReactNode} from 'react';
+import React from 'react';
 
-interface Props extends PageRendererProps {
-  title: string;
-  children: ReactNode;
-}
+import Navigation from './navbar';
 
-export const Layout = (props: Props) => {
-  const {title, children} = props;
+export const Layout = (props: any) => {
+  const {children} = props;
 
   return (
     <div className="container">
-      <header>
-        <h2>{title}</h2>
-      </header>
+      <Navigation />
       <main>{children}</main>
-      <footer>© {new Date().getFullYear()} Ellie Earle</footer>
+      <footer className="d-flex justify-content-center py-4">
+        © {new Date().getFullYear()} Ellie Earle
+        </footer>
     </div>
   );
 };
