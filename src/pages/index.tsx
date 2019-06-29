@@ -31,6 +31,9 @@ const BlogIndex = (props: Props) => {
                 file {
                   url
                 }
+                localFile {
+                  publicURL
+                }
               }
             }
           }
@@ -52,6 +55,7 @@ const BlogIndex = (props: Props) => {
       description: project.description,
       images: project.images!.map((image: any) => ({
         title: image.title,
+        abs: image.localFile.publicURL,
         src: image.file.url,
       })),
     })),
@@ -78,7 +82,7 @@ const BlogIndex = (props: Props) => {
                   objectPosition: 'center',
                   fontFamily: '\'object-fit: cover; object-position: center;\'',
                 }}
-                src={first(shuffle(c.projects[0].images))!.src}
+                src={first(shuffle(c.projects[0].images))!.abs}
                 alt="Card image cap"
               />
             </ResponsiveSquare>
