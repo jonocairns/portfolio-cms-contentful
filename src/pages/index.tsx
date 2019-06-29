@@ -57,31 +57,24 @@ const BlogIndex = (props: Props) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-    <div className="card-deck">
-      {collections.map((c: any) => (
-
-<div className="card" style={{width: '24rem'}}>
-  <img className="card-img-top" style={{maxHeight: 300}} src={c.projects[0].images[0].src} alt="Card image cap" />
-  <div className="card-body">
-    <h5 className="card-title">{c.title}</h5>
-    <p className="card-text">{c.description}</p>
-    <a href="#" className="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-
-        /* <div style={{maxWidth: '24rem'}} className="d-flex flex-column">
-          <h2>{c.title}</h2>
-          {c.projects.map((p: any) => (
-            <div>
-              <h4>{p.title}</h4>
-              {p.images.map((image: any) => (
-                <img className="img-fluid" src={image.src} alt={image.title} />
-              ))}
+      <div className="card-deck">
+        {collections.map((c: any) => (
+          <div className="card" style={{width: '24rem'}}>
+            <img
+              className="card-img-top"
+              style={{maxHeight: 300}}
+              src={c.projects[0].images[0].src}
+              alt="Card image cap"
+            />
+            <div className="card-body">
+              <h5 className="card-title">{c.title}</h5>
+              <p className="card-text">{c.description}</p>
+              <a href="#" className="btn btn-primary">
+                Go somewhere
+              </a>
             </div>
-          ))}
-        </div> */
-      ))}
+          </div>
+        ))}
       </div>
     </Layout>
   );
