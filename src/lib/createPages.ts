@@ -25,10 +25,31 @@ export const createPages: GatsbyCreatePages = async ({
                 }
               }
             }
+            allContentfulLandingPage {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
           }
         `);
 
         const collectionPageTemplate = path.resolve('./src/templates/collectionPageTemplate.tsx');
+
+        const landingPageTemplate = path.resolve('./src/templates/landingPageTemplate.tsx');
+
+        result.data.allContentfulLandingPage.edges.forEach((edge: any) => {
+          console.log(`creating page for ${edge.node.slug}`);
+          createPage({
+            path: `${edge.node.slug}`,
+              component: slash(landingPageTemplate),
+              context: {
+                slug: edge.node.slug,
+                id: edge.node.id
+              }
+        });
+        })
 
         return result.data.allContentfulCollection.edges.forEach((edge: any) => {
             console.log(`creating page for ${edge.node.slug}`);

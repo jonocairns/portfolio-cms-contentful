@@ -8,6 +8,16 @@ import {SEO} from '../components/seo';
 
 type Props = PageRendererProps;
 
+export const renderTitle = (title: string) => {
+  const split = title.split(' ');
+  const out: Array<JSX.Element> = [];
+  split.forEach((w, i) => {
+    out.push(<span className={i === 0 ? 'font-weight-bold' : undefined}>{w} </span>);
+  });
+
+  return out;
+};
+
 const BlogIndex = (props: Props) => {
   const query = graphql`
     query {
@@ -69,7 +79,7 @@ const BlogIndex = (props: Props) => {
       />
       <div className="d-flex justify-content-center flex-wrap py-4">
         {collections.map((c: any) => (
-          <div className="card m-4" style={{minWidth: '24rem', maxWidth: '24rem'}}>
+          <div className="card m-4 border-0 text-center" style={{minWidth: '24rem', maxWidth: '24rem'}}>
             <ResponsiveSquare
               id={c.id}
               paddingSizes={{small: '75%', medium: '75%', large: '75%'}}
@@ -88,8 +98,7 @@ const BlogIndex = (props: Props) => {
             </ResponsiveSquare>
 
             <div className="card-body">
-              <h5 className="card-title">{c.title}</h5>
-              <p className="card-text">{c.description}</p>
+              <h5 className="card-title">{renderTitle(c.title)}</h5>
               <Link to={c.slug} className="btn btn-secondary">See more</Link>
             </div>
           </div>

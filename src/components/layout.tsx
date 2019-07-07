@@ -1,5 +1,6 @@
-import 'bootstrap/scss/bootstrap.scss';
 import React from 'react';
+
+import '../custom.scss';
 
 import Navigation from './navbar';
 
@@ -7,12 +8,15 @@ export const Layout = (props: any) => {
   const {children} = props;
 
   return (
-    <div className="container">
+    <React.Fragment>
       <Navigation />
-      <main>{children}</main>
-      <footer className="d-flex justify-content-center py-4">
-        © {new Date().getFullYear()} Ellie Earle
+      <div className="container">
+        <main>{children}</main>
+        <hr />
+        <footer className="d-flex justify-content-center py-4">
+          © {new Date().getFullYear()} Ellie Earle
         </footer>
-    </div>
+      </div>
+    </React.Fragment>
   );
 };
