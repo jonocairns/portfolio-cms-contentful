@@ -32,15 +32,15 @@ const LandingPage = ({data}: Props) => {
                   {l1.content.map(
                     (l2: any) =>
                       (l2.internal.type === 'ContentfulQuote' && (
-                        <div><i>{l2.quoteSection.quoteSection}</i></div>
+                        <div><b><i>{l2.quoteSection.quoteSection}</i></b></div>
                       )) ||
                       (l2.internal.type === 'ContentfulContentSection' && (
                         <div>
-                          <div className="text-center mb-4">
+                          <div className="text-center pb-4">
                             <h4 className="text-primary">{l2.title}</h4>
                             <h6>{l2.subtitle}</h6>
                           </div>
-                          <ReactMarkdown source={l2.content.content} />
+                          <ReactMarkdown className="nth-child-li-target" source={l2.content.content} />
                         </div>
                       )) ||
                       (l2.internal.type === 'ContentfulSkillSection' && (

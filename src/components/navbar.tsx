@@ -52,7 +52,6 @@ export default class Navigation extends React.Component<{}, State> {
                   <Link
                     to={n.path}
                     activeStyle={{fontWeight: '700'}}
-                    partiallyActive={true}
                     className="nav-link"
                   >
                     {n.title}
