@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Ellie Earle`,
+    title: `Ellie Earle | Graphic Design`,
     author: `Ellie Earle`,
     description: `a`,
     siteUrl: `https://google.com`,

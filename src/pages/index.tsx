@@ -75,7 +75,7 @@ const Index = (props: Props) => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO
-        title="Ellie Earle | Graphic Design"
+        title="Ellie Earle"
       />
       <div className="d-flex justify-content-center flex-wrap py-4">
         {collections.map((c: any) => (
