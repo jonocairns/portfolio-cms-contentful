@@ -1,4 +1,6 @@
-import {Link} from 'gatsby';
+import classnames from 'classnames';
+import {Link, navigate} from 'gatsby';
+import {every} from 'lodash';
 import React from 'react';
 import {
   Collapse,
@@ -9,8 +11,8 @@ import {
   NavItem,
 } from 'reactstrap';
 
-import logo from '../../static/logo.png';
-import title from '../../static/title.png';
+// import logo from '../../static/logo.png';
+// import title from '../../static/title.png';
 
 interface State {
   isOpen: boolean;
@@ -19,7 +21,7 @@ interface State {
 const navItems = [
   {path: '/', title: 'Work'},
   {path: '/about', title: 'About'},
-  {path: '/contact', title: 'Contact'},
+  // {path: '/contact', title: 'Contact'},
 ];
 
 export default class Navigation extends React.Component<{}, State> {
@@ -37,22 +39,53 @@ export default class Navigation extends React.Component<{}, State> {
     });
   };
   render() {
+    const title = (
+      <React.Fragment>
+        <span className="font-weight-bold">Ellie Earle </span>
+              <span className="font-weight-light">| Graphic Design</span>
+      </React.Fragment>
+    );
+
     return (
       <div style={{backgroundColor: '#424244'}}>
         <Navbar className="container py-4" dark expand="md">
-          <NavbarBrand href="/">
-            <img src={logo} className="mr-4 d-none d-md-inline" />
-            <img style={{maxWidth: '400px'}} src={title} />
+          <NavbarBrand
+            href="#"
+            onClick={e => {
+              e.preventDefault();
+
+              navigate('/');
+            }}
+          >
+            {/* <img src={logo} className="mr-4 d-none d-md-inline" style={{maxWidth: '40px'}} />
+            <img style={{maxWidth: '300px'}} src={title} /> */}
+            <h2 className="d-none d-md-block">
+              {title}
+            </h2>
+            <h4 className="d-none d-sm-block d-md-none">
+              {title}
+            </h4>
+            <h6 className="d-sm-none">
+              {title}
+            </h6>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto mt-3" navbar>
               {navItems.map(n => (
-                <NavItem>
+                <NavItem key={n.path}>
                   <Link
                     to={n.path}
-                    activeStyle={{fontWeight: '700'}}
-                    className="nav-link"
+                    partiallyActive
+                    className={classnames('nav-link', {
+                      // 'font-weight-bold':
+                      //   n.path === location.pathname,
+                      'font-weight-bold':
+                        n.path === location.pathname || every(
+                          navItems,
+                          nv => nv.path !== location.pathname
+                        ) && n.path === '/'
+                    })}
                   >
                     {n.title}
                   </Link>

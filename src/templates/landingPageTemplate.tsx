@@ -10,18 +10,16 @@ interface Props {
 }
 
 const LandingPage = ({data}: Props) => {
-  const {slug, content} = data.contentfulLandingPage;
+  const {content} = data.contentfulLandingPage;
 
   return (
     <Layout>
       <SEO title={''} />
-      <div>
-        <h1 className="text-center py-4">{slug}</h1>
-
+      <div className="pt-4">
         {content.map(
           (l1: any) =>
             l1.internal.type === 'ContentfulPageSection' && (
-              <div className="d-flex flex-column pb-4">
+              <div key={l1.id} className="d-flex flex-column pb-4">
                 {l1.title && (
                   <h2 className="text-center pb-4 font-weight-bold">
                     {l1.title}
@@ -32,10 +30,10 @@ const LandingPage = ({data}: Props) => {
                   {l1.content.map(
                     (l2: any) =>
                       (l2.internal.type === 'ContentfulQuote' && (
-                        <div><b><i>{l2.quoteSection.quoteSection}</i></b></div>
+                        <div className="px-md-5 mx-md-5 text-center"><b><i>{l2.quoteSection.quoteSection}</i></b></div>
                       )) ||
                       (l2.internal.type === 'ContentfulContentSection' && (
-                        <div>
+                        <div className="py-2">
                           <div className="text-center pb-4">
                             <h4 className="text-primary">{l2.title}</h4>
                             <h6>{l2.subtitle}</h6>
@@ -51,7 +49,7 @@ const LandingPage = ({data}: Props) => {
                           <div className="row py-2">
                             {l2.skills.map((s: any) => (
                               <div className="row col-12 col-md-6 d-flex align-items-center">
-                                <span className="col-6">{s.title}</span>
+                                <span className="col-6 text-right">{s.title}</span>
 
                                 <div className="col-6">
                                   <div className="progress bg-dark" style={{height: '30px'}}>

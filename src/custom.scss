@@ -4,3 +4,11 @@
 .nth-child-li-target li:nth-child(odd) {
     font-weight: bold;
 }
+
+.hoverOpacity:hover {
+    opacity: 0.5;
+}
+
+.modal-width {
+    max-width: 600px;
+}
