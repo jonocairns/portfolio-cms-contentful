@@ -40,7 +40,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
             <img className="w-100 h-100" src={selectedImage} />
           </Modal>
           <div>
-            {projects.map((p: any, i: number) => (
+            {projects && projects.map((p: any, i: number) => (
               <div
                 key={p.id}
                 className={
