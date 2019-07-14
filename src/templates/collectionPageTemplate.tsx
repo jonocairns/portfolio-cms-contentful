@@ -80,7 +80,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                             objectFit: 'cover',
                             objectPosition: 'center',
                             fontFamily:
-                              "'object-fit: cover; object-position: center;'",
+                              '\'object-fit: cover; object-position: center;\'',
                           }}
                           src={item.file.url}
                           alt={item.title}

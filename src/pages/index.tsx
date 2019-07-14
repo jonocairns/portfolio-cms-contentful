@@ -3,6 +3,7 @@ import React from 'react';
 
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
+import {ResponsiveSquare} from '../components/responsiveSquare';
 
 type Props = PageRendererProps;
 
@@ -11,7 +12,12 @@ export const renderTitle = (title: string) => {
   const out: Array<JSX.Element> = [];
   split.forEach((w, i) => {
     out.push(
-      <span key={`${w}-${i}`} className={i === 0 ? 'font-weight-bold' : undefined}>{w} </span>
+      <span
+        key={`${w}-${i}`}
+        className={i === 0 ? 'font-weight-bold' : undefined}
+      >
+        {w}{' '}
+      </span>
     );
   });
 
@@ -66,22 +72,27 @@ const Index = (props: Props) => {
     description: edge.node.description,
     slug: edge.node.slug,
     image: edge.node.image && edge.node.image.file.url,
-    projects: edge.node.projects && edge.node.projects!.map((project: any) => ({
-      title: project.title,
-      description: project.description,
-      images: project.images && project.images!.map((image: any) => image && ({
-        title: image.title,
-        abs: image.localFile.publicURL,
-        src: image.file.url,
+    projects:
+      edge.node.projects &&
+      edge.node.projects!.map((project: any) => ({
+        title: project.title,
+        description: project.description,
+        images:
+          project.images &&
+          project.images!.map(
+            (image: any) =>
+              image && {
+                title: image.title,
+                abs: image.localFile.publicURL,
+                src: image.file.url,
+              }
+          ),
       })),
-    })),
   }));
 
   return (
     <Layout location={props.location} title={siteTitle}>
-      <SEO
-        title="Ellie Earle"
-      />
+      <SEO title="Ellie Earle" />
       <div className="d-flex justify-content-center flex-wrap py-4">
         {collections.map((c: any) => (
           <div
@@ -94,19 +105,19 @@ const Index = (props: Props) => {
             className="card m-2 border-0 text-center hoverOpacity"
             style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer'}}
           >
-            <img
-              className="card-img-top h-100 w-100"
-              style={{
-                width: '200px',
-                maxHeight: '300px',
-                objectFit: 'cover',
-                objectPosition: 'center',
-                backgroundSize: 'cover',
-                fontFamily: '\'object-fit: cover; object-position: center;\'',
-              }}
-              src={c.image}
-              alt="Card image cap"
-            />
+            <ResponsiveSquare id={`rs-${c.id}`}>
+              <img
+                className="card-img-top h-100 w-100"
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  backgroundSize: 'cover',
+                  fontFamily: "'object-fit: cover; object-position: center;'",
+                }}
+                src={c.image}
+                alt="Card image cap"
+              />
+            </ResponsiveSquare>
           </div>
         ))}
       </div>
