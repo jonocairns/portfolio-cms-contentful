@@ -1,5 +1,4 @@
 import {graphql, navigate, PageRendererProps, useStaticQuery} from 'gatsby';
-import {first} from 'lodash';
 import React from 'react';
 
 import {Layout} from '../components/layout';
@@ -34,6 +33,11 @@ const Index = (props: Props) => {
             title
             description
             slug
+            image {
+              file {
+                url
+              }
+            }
             projects {
               title
               description
@@ -61,10 +65,11 @@ const Index = (props: Props) => {
     title: edge.node.title,
     description: edge.node.description,
     slug: edge.node.slug,
-    projects: edge.node.projects!.map((project: any) => ({
+    image: edge.node.image && edge.node.image.file.url,
+    projects: edge.node.projects && edge.node.projects!.map((project: any) => ({
       title: project.title,
       description: project.description,
-      images: project.images!.map((image: any) => ({
+      images: project.images && project.images!.map((image: any) => image && ({
         title: image.title,
         abs: image.localFile.publicURL,
         src: image.file.url,
@@ -99,7 +104,7 @@ const Index = (props: Props) => {
                 backgroundSize: 'cover',
                 fontFamily: '\'object-fit: cover; object-position: center;\'',
               }}
-              src={first(c.projects[0].images)!.abs}
+              src={c.image}
               alt="Card image cap"
             />
           </div>
