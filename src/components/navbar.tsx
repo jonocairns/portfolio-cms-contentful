@@ -76,16 +76,7 @@ export default class Navigation extends React.Component<{}, State> {
                 <NavItem key={n.path}>
                   <Link
                     to={n.path}
-                    partiallyActive
-                    className={classnames('nav-link', {
-                      // 'font-weight-bold':
-                      //   n.path === location.pathname,
-                      'font-weight-bold':
-                        n.path === location.pathname || every(
-                          navItems,
-                          nv => nv.path !== location.pathname
-                        ) && n.path === '/'
-                    })}
+                    className="nav-link"
                   >
                     {n.title}
                   </Link>
