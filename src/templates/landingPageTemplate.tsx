@@ -1,6 +1,6 @@
 import {graphql} from 'gatsby';
+import marked from 'marked';
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
@@ -8,6 +8,12 @@ import {SEO} from '../components/seo';
 interface Props {
   data?: any;
 }
+
+const getMarkdown = (input: any) => {
+  const rawMarkup = marked(input, {sanitize: true});
+
+  return {__html: rawMarkup};
+};
 
 const LandingPage = ({data}: Props) => {
   const {content} = data.contentfulLandingPage;
@@ -30,7 +36,11 @@ const LandingPage = ({data}: Props) => {
                   {l1.content.map(
                     (l2: any) =>
                       (l2.internal.type === 'ContentfulQuote' && (
-                        <div className="px-md-5 mx-md-5 text-center"><b><i>{l2.quoteSection.quoteSection}</i></b></div>
+                        <div className="px-md-5 mx-md-5 text-center">
+                          <b>
+                            <i>{l2.quoteSection.quoteSection}</i>
+                          </b>
+                        </div>
                       )) ||
                       (l2.internal.type === 'ContentfulContentSection' && (
                         <div className="py-2">
@@ -38,7 +48,11 @@ const LandingPage = ({data}: Props) => {
                             <h4 className="text-primary">{l2.title}</h4>
                             <h6>{l2.subtitle}</h6>
                           </div>
-                          <ReactMarkdown className="nth-child-li-target" source={l2.content.content} />
+
+                          <div
+                            className="nth-child-li-target"
+                            dangerouslySetInnerHTML={getMarkdown(l2.content.content)}
+                          />
                         </div>
                       )) ||
                       (l2.internal.type === 'ContentfulSkillSection' && (
@@ -49,10 +63,15 @@ const LandingPage = ({data}: Props) => {
                           <div className="row py-2">
                             {l2.skills.map((s: any) => (
                               <div className="row col-12 col-md-6 d-flex align-items-center">
-                                <span className="col-6 text-right">{s.title}</span>
+                                <span className="col-6 text-right">
+                                  {s.title}
+                                </span>
 
                                 <div className="col-6">
-                                  <div className="progress bg-dark" style={{height: '30px'}}>
+                                  <div
+                                    className="progress bg-dark"
+                                    style={{height: '30px'}}
+                                  >
                                     <div
                                       style={{
                                         width: `${Math.abs(s.years / 5) *
@@ -60,7 +79,9 @@ const LandingPage = ({data}: Props) => {
                                       }}
                                       className="progress-bar"
                                       role="progressbar"
-                                    >[ {s.years} years ]</div>
+                                    >
+                                      [ {s.years} years ]
+                                    </div>
                                   </div>
                                 </div>
                               </div>
