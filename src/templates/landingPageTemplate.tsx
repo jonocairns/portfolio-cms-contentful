@@ -50,7 +50,6 @@ const LandingPage = ({data}: Props) => {
                           </div>
 
                           <div
-                            className="nth-child-li-target"
                             dangerouslySetInnerHTML={getMarkdown(l2.content.content)}
                           />
                         </div>
