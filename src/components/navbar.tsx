@@ -11,7 +11,7 @@ import {
   NavItem,
 } from 'reactstrap';
 
-import logo from '../../static/logo.png';
+import logo from '../../static/brand_logo_trans.png';
 // import title from '../../static/title.png';
 
 interface State {
@@ -57,14 +57,14 @@ export default class Navigation extends React.Component<{}, State> {
               navigate('/');
             }}
           >
-            <h2 className="d-none d-md-block">
+            <h1 className="d-none d-md-block">
+              {title}
               <img
                 src={logo}
-                className="mr-4 d-none d-md-inline"
+                className="ml-2 d-none d-md-inline"
                 style={{maxWidth: '40px'}}
               />
-              {title}
-            </h2>
+            </h1>
             <h4 className="d-none d-sm-block d-md-none">{title}</h4>
             <h6 className="d-sm-none">{title}</h6>
           </NavbarBrand>
@@ -73,7 +73,7 @@ export default class Navigation extends React.Component<{}, State> {
             <Nav className="ml-auto mt-3" navbar>
               {navItems.map(n => (
                 <NavItem key={n.path}>
-                  <Link to={n.path} className="nav-link">
+                  <Link to={n.path} className="nav-link text-white font-weight-bold">
                     {n.title}
                   </Link>
                 </NavItem>

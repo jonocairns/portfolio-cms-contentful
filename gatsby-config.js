@@ -7,7 +7,7 @@ module.exports = {
     title: `Ellie Earle | Graphic Design`,
     author: `Ellie Earle`,
     description: `a`,
-    siteUrl: `https://google.com`,
+    siteUrl: `https://earle.co.nz`,
     social: {
       twitter: `a`,
     },
@@ -79,13 +79,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Ellie Earle | Graphic Design`,
+        short_name: `Ellie Earle`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `static/brand_logo_trans.png`,
       },
     },
     `gatsby-plugin-offline`,
