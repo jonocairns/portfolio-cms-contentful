@@ -62,6 +62,7 @@ const Contact = (props: Props) => {
               <input
                 required
                 type="email"
+                name="email"
                 className="form-control"
                 aria-describedby="emailHelp"
                 placeholder="Please enter your contact email..."
@@ -73,6 +74,7 @@ const Contact = (props: Props) => {
               <label>Subject</label>
               <input
                 required
+                name="subject"
                 type="text"
                 className="form-control"
                 placeholder="The subject of the message goes here..."
@@ -83,6 +85,7 @@ const Contact = (props: Props) => {
               <label>Body</label>
               <textarea
                 required
+                name="body"
                 placeholder="Please enter your message here..."
                 className="form-control"
                 rows={3}
