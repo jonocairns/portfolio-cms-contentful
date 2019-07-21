@@ -6,6 +6,7 @@ import linkedin from '../../static/linkedin_icon_asset.svg';
 import vimeo from '../../static/vimeo_icon_asset.svg';
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
+import { renderTitle } from '.';
 
 type Props = PageRendererProps;
 
@@ -28,7 +29,8 @@ const Contact = (props: Props) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Ellie Earle" />
       <div className="pt-4">
-        <div className="pb-4 mt-4">
+        <div className="pb-4">
+        <h2 className="text-center py-4">{renderTitle('Contact me')}</h2>
           <a className="mr-4" href="https://www.facebook.com/elliearle" target="_blank">
             <img style={{width: '40px'}} src={facebook} />
           </a>
