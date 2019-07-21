@@ -29,13 +29,13 @@ const Contact = (props: Props) => {
       <SEO title="Ellie Earle" />
       <div className="pt-4">
         <div className="pb-4 mt-4">
-          <a className="mr-4" href="">
+          <a className="mr-4" href="https://www.facebook.com/elliearle" target="_blank">
             <img style={{width: '40px'}} src={facebook} />
           </a>
-          <a className="mr-4" href="">
+          <a className="mr-4" href="https://www.linkedin.com/in/ellieearleonlinkedin/" target="_blank">
             <img style={{width: '40px'}} src={linkedin} />
           </a>
-          <a className="mr-4" href="">
+          <a className="mr-4" href="https://vimeo.com/ellieearle" target="_blank">
             <img style={{width: '40px'}} src={vimeo} />
           </a>
         </div>
