@@ -11,7 +11,7 @@ import {
   NavItem,
 } from 'reactstrap';
 
-// import logo from '../../static/logo.png';
+import logo from '../../static/logo.png';
 // import title from '../../static/title.png';
 
 interface State {
@@ -21,7 +21,7 @@ interface State {
 const navItems = [
   {path: '/', title: 'Work'},
   {path: '/about', title: 'About'},
-  // {path: '/contact', title: 'Contact'},
+  {path: '/contact', title: 'Contact'},
 ];
 
 export default class Navigation extends React.Component<{}, State> {
@@ -42,12 +42,12 @@ export default class Navigation extends React.Component<{}, State> {
     const title = (
       <React.Fragment>
         <span className="font-weight-bold">Ellie Earle </span>
-              <span className="font-weight-light">| Graphic Design</span>
+        <span className="font-weight-light">| Graphic Design</span>
       </React.Fragment>
     );
 
     return (
-      <div style={{backgroundColor: '#424244'}}>
+      <div style={{backgroundColor: '#424244'}} className="fixed-top">
         <Navbar className="container py-4" dark expand="md">
           <NavbarBrand
             href="#"
@@ -57,27 +57,23 @@ export default class Navigation extends React.Component<{}, State> {
               navigate('/');
             }}
           >
-            {/* <img src={logo} className="mr-4 d-none d-md-inline" style={{maxWidth: '40px'}} />
-            <img style={{maxWidth: '300px'}} src={title} /> */}
             <h2 className="d-none d-md-block">
+              <img
+                src={logo}
+                className="mr-4 d-none d-md-inline"
+                style={{maxWidth: '40px'}}
+              />
               {title}
             </h2>
-            <h4 className="d-none d-sm-block d-md-none">
-              {title}
-            </h4>
-            <h6 className="d-sm-none">
-              {title}
-            </h6>
+            <h4 className="d-none d-sm-block d-md-none">{title}</h4>
+            <h6 className="d-sm-none">{title}</h6>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto mt-3" navbar>
               {navItems.map(n => (
                 <NavItem key={n.path}>
-                  <Link
-                    to={n.path}
-                    className="nav-link"
-                  >
+                  <Link to={n.path} className="nav-link">
                     {n.title}
                   </Link>
                 </NavItem>

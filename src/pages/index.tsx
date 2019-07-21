@@ -14,7 +14,7 @@ export const renderTitle = (title: string) => {
     out.push(
       <span
         key={`${w}-${i}`}
-        className={i === 0 ? 'font-weight-bold' : undefined}
+        style={{fontWeight: i === 0 ? 900 : undefined}}
       >
         {w}{' '}
       </span>
@@ -46,7 +46,9 @@ const Index = (props: Props) => {
             }
             projects {
               title
-              description
+              description {
+                description
+              }
               images {
                 title
                 file {
@@ -76,7 +78,7 @@ const Index = (props: Props) => {
       edge.node.projects &&
       edge.node.projects!.map((project: any) => ({
         title: project.title,
-        description: project.description,
+        description: project.description.description,
         images:
           project.images &&
           project.images!.map(
@@ -102,7 +104,7 @@ const Index = (props: Props) => {
 
               navigate(c.slug);
             }}
-            className="card m-2 border-0 text-center hoverOpacity"
+            className="card mx-2 border-0 text-center hoverOpacity my-3"
             style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer'}}
           >
             <ResponsiveSquare id={`rs-${c.id}`}>
@@ -118,6 +120,8 @@ const Index = (props: Props) => {
                 alt="Card image cap"
               />
             </ResponsiveSquare>
+            <h3 className="pt-2">{renderTitle(c.title)}</h3>
+
           </div>
         ))}
       </div>

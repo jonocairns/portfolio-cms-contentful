@@ -65,6 +65,14 @@ module.exports = {
             family: `Source Sans Pro`,
             variants: ['sans-serif']
           },
+          {
+            family: `Fascinate`,
+            variants: ['cursive']
+          },
+          {
+            family: `Anton`,
+            variants: ['sans-serif']
+          }
         ],
       },
     },

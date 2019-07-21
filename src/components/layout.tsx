@@ -10,7 +10,7 @@ export const Layout = (props: any) => {
   return (
     <React.Fragment>
       <Navigation />
-      <div className="container">
+      <div style={{marginTop: '100px'}} className="container">
         <main>{children}</main>
         <hr />
         <footer className="d-flex justify-content-center py-4">
