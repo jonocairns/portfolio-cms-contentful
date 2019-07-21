@@ -13,7 +13,7 @@ export const Layout = (props: any) => {
       <div style={{marginTop: '100px'}} className="container">
         <main>{children}</main>
         <footer className="d-flex justify-content-center py-4">
-          <div>© {new Date().getFullYear()} Ellie Earle</div>
+          <p>© {new Date().getFullYear()} Ellie Earle</p>
           <p className="small">
             <i>
           The work on this site was done by me while working at the named companies 
