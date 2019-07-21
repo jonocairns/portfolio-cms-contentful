@@ -37,10 +37,10 @@ const LandingPage = ({data}: Props) => {
                   {l1.content.map((l2: any) => (
                     <React.Fragment key={l2.id}>
                       {(l2.internal.type === 'ContentfulQuote' && (
-                        <div className="px-md-5 mx-md-5 text-center">
+                        <div className="px-md-5 mx-md-5 text-center d-flex">
                           <img
                             style={{width: '35px'}}
-                            className="mx-2"
+                            className="mx-4 d-block align-self-start"
                             src={quoteStart}
                           />
                           <b>
@@ -48,7 +48,7 @@ const LandingPage = ({data}: Props) => {
                           </b>
                           <img
                             style={{width: '35px'}}
-                            className="mx-2"
+                            className="mx-4 d-block align-self-end"
                             src={quoteEnd}
                           />
                         </div>
@@ -115,7 +115,17 @@ const LandingPage = ({data}: Props) => {
                         (l2.internal.type === 'ContentfulBulletPointList' && (
                           <div className="mb-4">
                             <div className="text-center">
-                              {l2.items && l2.items.map((item: any) => <span key={item.id}> • {item.title}</span>)}
+                              {l2.items &&
+                                l2.items.map((item: any, index: number) => (
+                                  <span key={item.id}>
+                                    {item.title}
+                                    <span className="text-primary">
+                                      {index === l2.items.length - 1
+                                        ? ' '
+                                        : ' • '}
+                                    </span>
+                                  </span>
+                                ))}
                             </div>
                           </div>
                         ))}
