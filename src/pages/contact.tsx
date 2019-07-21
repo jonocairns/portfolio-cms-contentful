@@ -49,6 +49,7 @@ const Contact = (props: Props) => {
 
         {!isSuccess && (
           <form
+            name="contact"
             action="/contact?success"
             method="post"
             data-netlify="true"
