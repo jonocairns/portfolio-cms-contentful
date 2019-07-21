@@ -28,7 +28,7 @@ const Contact = (props: Props) => {
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Ellie Earle" />
       <div className="pt-4">
-        <div className="pb-4">
+        <div className="pb-4 mt-4">
           <a className="mr-4" href="">
             <img style={{width: '40px'}} src={facebook} />
           </a>

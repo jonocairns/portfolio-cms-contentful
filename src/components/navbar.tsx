@@ -57,26 +57,29 @@ export default class Navigation extends React.Component<{}, State> {
               navigate('/');
             }}
           >
-            <h1 className="d-none d-md-block">
+            <h2 className="d-none d-md-block">
               {title}
               <img
                 src={logo}
                 className="ml-2 d-none d-md-inline"
                 style={{maxWidth: '40px'}}
               />
-            </h1>
+            </h2>
             <h4 className="d-none d-sm-block d-md-none">{title}</h4>
             <h6 className="d-sm-none">{title}</h6>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto mt-3" navbar>
-              {navItems.map(n => (
-                <NavItem key={n.path}>
-                  <Link to={n.path} className="nav-link text-white font-weight-bold">
+              {navItems.map((n, i: number) => (
+                <React.Fragment>
+                  <NavItem key={n.path}>
+                  <Link to={n.path} className="nav-link text-white d-inline">
                     {n.title}
                   </Link>
+                  {i !== navItems.length - 1 && <span className="d-inline text-white">|</span>}
                 </NavItem>
+                </React.Fragment>
               ))}
             </Nav>
           </Collapse>

@@ -76,7 +76,7 @@ const LandingPage = ({data}: Props) => {
                               {l2.skills.map((s: any) => (
                                 <div
                                   key={s.id}
-                                  className="row col-12 col-md-6 d-flex align-items-center"
+                                  className="row col-12 col-md-6 d-flex align-items-center py-2"
                                 >
                                   <span className="col-6 text-right">
                                     {s.title}
@@ -87,6 +87,12 @@ const LandingPage = ({data}: Props) => {
                                       className="progress bg-dark"
                                       style={{height: '30px'}}
                                     >
+                                      <div className="position-absolute text-center text-white w-100 mt-1 pr-4">
+                                        <span>
+                                          {s.years} year{s.years !== 1 && 's'}
+                                        </span>
+                                      </div>
+
                                       <div
                                         style={{
                                           width: `${Math.abs(s.years / 5) *
@@ -94,9 +100,7 @@ const LandingPage = ({data}: Props) => {
                                         }}
                                         className="progress-bar"
                                         role="progressbar"
-                                      >
-                                        [ {s.years} years ]
-                                      </div>
+                                      ></div>
                                     </div>
                                   </div>
                                 </div>
@@ -113,24 +117,22 @@ const LandingPage = ({data}: Props) => {
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulBulletPointList' && (
-                          <div className="mb-4">
-                            <div className="text-center">
-                              {l2.items &&
-                                l2.items.map((item: any, index: number) => (
-                                  <span key={item.id}>
-                                    {item.title}
-                                    <span className="text-primary">
-                                      {index === l2.items.length - 1
-                                        ? ' '
-                                        : ' • '}
-                                    </span>
-                                  </span>
-                                ))}
-                            </div>
+                          <div className="mb-4 d-flex justify-content-center flex-wrap">
+                            {l2.items &&
+                              l2.items.map((item: any, index: number) => (
+                                <div
+                                  key={item.id}
+                                  className="col-12 col-md-6 d-flex"
+                                >
+                                  <div className="text-primary px-4"> • </div>
+                                  <div>{item.title}</div>
+                                </div>
+                              ))}
                           </div>
                         ))}
                     </React.Fragment>
                   ))}
+                  <hr className="mt-5 pt-0 pb-0 mb-0"/>
                 </div>
               </div>
             )}
