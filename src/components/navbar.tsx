@@ -70,7 +70,7 @@ export default class Navigation extends React.Component<{}, State> {
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto mt-3" navbar>
+            <Nav className="ml-auto" navbar>
               {navItems.map((n, i: number) => (
                 <React.Fragment>
                   <NavItem key={n.path}>
