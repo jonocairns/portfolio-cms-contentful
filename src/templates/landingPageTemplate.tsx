@@ -12,7 +12,7 @@ interface Props {
   data?: any;
 }
 
-const getMarkdown = (input: any) => {
+export const getMarkdown = (input: any) => {
   const rawMarkup = marked(input);
 
   return {__html: rawMarkup};

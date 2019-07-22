@@ -7,6 +7,7 @@ import {Layout} from '../components/layout';
 import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
 import {renderTitle} from '../pages/index';
+import {getMarkdown} from './landingPageTemplate';
 
 interface Props {
   data?: any;
@@ -66,7 +67,11 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                   >
                     <div className="p-4">
                       <h3 className="font-weight-bold">{p.title}</h3>
-                      <p>{p.description.description}</p>
+                      <p
+                        dangerouslySetInnerHTML={getMarkdown(
+                          p.description.description
+                        )}
+                      />
                     </div>
                   </div>
                   <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-start px-0">
