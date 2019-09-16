@@ -61,7 +61,7 @@
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
     "@types/react-helmet": "^5.0.8",
-    "@types/reactstrap": "^8.0.1",
+    "@types/reactstrap": "^8.0.4",
     "@types/slash": "^2.0.0",
     "@types/styled-components": "^4.1.16",
     "@types/typography": "^0.16.2",
