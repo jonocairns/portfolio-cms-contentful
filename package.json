@@ -60,7 +60,7 @@
     "@types/marked": "^0.6.5",
     "@types/react": "^16.8.22",
     "@types/react-dom": "^16.8.4",
-    "@types/react-helmet": "^5.0.8",
+    "@types/react-helmet": "^5.0.13",
     "@types/reactstrap": "^8.0.1",
     "@types/slash": "^2.0.0",
     "@types/styled-components": "^4.1.16",
