@@ -1754,10 +1754,10 @@
   resolved "https://registry.yarnpkg.com/@types/slash/-/slash-2.0.0.tgz#2c37c08f5d2e0dad20aed808de79459e0a35ef9d"
   integrity sha512-LTVXHQ+ij5F973ulc7aJEFteAtUvCflhzI3oOdV8VhWUmjy4na4LnK2bZaH8hDBq9eFX+Nb9DT3HVctqLoTy+g==
 
-"@types/styled-components@^4.1.16":
-  version "4.1.16"
-  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.16.tgz#63fb33d02bc41d70a3af88711849b6df5d2a58e0"
-  integrity sha512-h4VtEopz0AS2oAbZlVSG1gnEhvx0LXcmYn9jD/y8Z/OHimsQygYFeDPbUDH/rJOaQu3T+PgAgRtOTG2IZyUTVg==
+"@types/styled-components@^4.1.20":
+  version "4.1.20"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.20.tgz#8afd41039c0fd582152e57ff75c58a5353870de6"
+  integrity sha512-WztLENdKY+H9udccx5ZhAblgTp08NSfOFYdGaWM0MMm+1tEOioYVFwIIQ7Hx+9wWXiWKDXeoX6R3D/i1obnG3g==
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
