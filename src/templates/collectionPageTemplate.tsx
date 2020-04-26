@@ -67,7 +67,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                   >
                     <div className="p-4">
                       <h3 className="font-weight-bold">{p.title}</h3>
-                      <p
+                      <div
                         dangerouslySetInnerHTML={getMarkdown(
                           p.description.description
                         )}

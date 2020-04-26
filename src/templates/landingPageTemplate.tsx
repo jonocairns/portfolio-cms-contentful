@@ -1,7 +1,6 @@
 import {graphql} from 'gatsby';
 import marked from 'marked';
 import React from 'react';
-import DOMPurify from 'dompurify';
 
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
@@ -15,9 +14,8 @@ interface Props {
 
 export const getMarkdown = (input: any) => {
   const rawMarkup = marked(input);
-  const pure = DOMPurify.sanitize(rawMarkup);
 
-  return {__html: pure};
+  return {__html: rawMarkup};
 };
 
 const LandingPage = ({data}: Props) => {
