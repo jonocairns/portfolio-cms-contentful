@@ -8,3 +8,9 @@
 .modal-width {
     max-width: 600px;
 }
+
+.mobile-menu {
+    button:focus {
+        outline: $primary
+    }
+}
