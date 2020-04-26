@@ -72,8 +72,8 @@ export default class Navigation extends React.Component<{}, State> {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {navItems.map((n, i: number) => (
-                <React.Fragment>
-                  <NavItem key={n.path}>
+                <React.Fragment key={n.path}>
+                  <NavItem>
                   <Link to={n.path} className="nav-link text-white d-inline">
                     {n.title}
                   </Link>
