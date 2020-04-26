@@ -77,7 +77,7 @@ export default class Navigation extends React.Component<{}, State> {
                   <Link to={n.path} className="nav-link text-white d-inline">
                     {n.title}
                   </Link>
-                  {i !== navItems.length - 1 && <span className="d-inline text-white">|</span>}
+                  {i !== navItems.length - 1 && <span className="d-none d-md-inline text-white">|</span>}
                 </NavItem>
                 </React.Fragment>
               ))}

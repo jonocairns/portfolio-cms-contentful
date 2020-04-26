@@ -32,7 +32,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
     this.setState({isOpen: !this.state.isOpen, selectedImage: img});
 
   render() {
-    const {title, description, projects} = this.props.data.contentfulCollection;
+    const {title, projects} = this.props.data.contentfulCollection;
     const {isOpen, selectedImage} = this.state;
 
     return (
@@ -66,7 +66,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                     )}
                   >
                     <div className="p-4">
-                      <h3 className="font-weight-bold">{p.title}</h3>
+                      <h5 className="font-weight-bold">{p.title}</h5>
                       <div
                         dangerouslySetInnerHTML={getMarkdown(
                           p.description.description
