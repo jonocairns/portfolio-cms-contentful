@@ -2,7 +2,7 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .hoverOpacity:hover {
-    opacity: 0.5;
+    opacity: 0.9;
 }
 
 .modal-width {
@@ -13,4 +13,9 @@
     button:focus {
         outline: $primary
     }
+}
+
+.zoom:hover {
+    transform: scale(1.07);
+    transition: all 250ms cubic-bezier(0,0,.26,1);
 }

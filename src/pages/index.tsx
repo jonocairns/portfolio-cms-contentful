@@ -107,9 +107,9 @@ const Index = (props: Props) => {
             className="card mx-2 border-0 text-center hoverOpacity my-3"
             style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer'}}
           >
-            <ResponsiveSquare id={`rs-${c.id}`}>
+            <ResponsiveSquare id={`rs-${c.id}`} className="overflow-hidden">
               <img
-                className="card-img-top h-100 w-100"
+                className="card-img-top h-100 w-100 zoom"
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
