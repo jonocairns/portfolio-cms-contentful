@@ -105,7 +105,7 @@ const Index = (props: Props) => {
           <AniLink key={c.id} paintDrip hex="#fff" to={c.slug} 
           
             className="card mx-2 border-0 text-center hoverOpacity my-3 text-dark"
-            style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer', textDecoration: 'none'}}
+            style={{minWidth: '18rem', maxWidth: '18rem', cursor: 'pointer', textDecoration: 'none'}}
           >
             <ResponsiveSquare id={`rs-${c.id}`} className="overflow-hidden">
               <img

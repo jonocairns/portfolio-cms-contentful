@@ -28,7 +28,7 @@ export const ResponsiveSquare: React.FunctionComponent<Props> = ({
   };
 
   const defaultPadding = `.${selector} {
-          padding-top: 70%;
+          padding-top: 90%;
         }
         @media (min-width: ${breakpoints.medium}px) {
           .${selector} {
