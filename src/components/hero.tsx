@@ -20,7 +20,7 @@ export const Hero = (props: Props) => {
         backgroundAttachment: 'fixed'}}>
     <div className="container">
     <h1 className="display-4 text-white pt-5">{title}</h1>
-    <p className="lead text-white pb-5" style={{maxWidth: '500px'}}>{lead}</p>
+    <p className="lead text-white pb-5">{lead}</p>
     </div>
     </div>
   );

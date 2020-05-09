@@ -98,7 +98,7 @@ const Index = (props: Props) => {
     <Layout location={props.location} title={siteTitle} hideFooter={true}>
       <SEO title="Ellie Earle" />
 
-      <Hero title="Ellie Earle" lead="Multidisciplinary designer who hacks at, makes and occasionally breaks things."/>
+      <Hero title="Ellie Earle" lead="Multidisciplinary designer. Food and caffeine driven. Will fight you for a donut."/>
 
       <div className="d-flex justify-content-center flex-wrap pb-4">
         {collections.map((c: any) => (
