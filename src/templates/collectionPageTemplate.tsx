@@ -8,6 +8,7 @@ import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
 import {renderTitle} from '../pages/index';
 import {getMarkdown} from './landingPageTemplate';
+import { Hero } from '../components/hero';
 
 interface Props {
   data?: any;
@@ -32,30 +33,26 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
     this.setState({isOpen: !this.state.isOpen, selectedImage: img});
 
   render() {
-    const {title, projects} = this.props.data.contentfulCollection;
+    const {title, projects, description} = this.props.data.contentfulCollection;
     const {isOpen, selectedImage} = this.state;
 
     return (
       <Layout>
         <SEO title={title} />
         <div>
-          <Modal isOpen={isOpen} toggle={this.toggle} size="lg">
+          <Modal isOpen={isOpen} toggle={this.toggle as any} size="lg">
             <img className="w-100 h-100" src={selectedImage} />
           </Modal>
-          <div className="pt-4">
-            <div className="text-center py-4">
-              <h2>{renderTitle(title)}</h2>
-            </div>
+
+        <Hero title={title}lead={description}  />
+
+          <div className="pt-4 container">
 
             {projects &&
               projects.map((p: any, i: number) => (
                 <div
                   key={p.id}
-                  className={
-                    // tslint:disable-next-line: no-bitwise
-                    i & 1
-                      ? 'row d-flex flex-row'
-                      : 'row d-flex flex-row-reverse'
+                  className={'row d-flex flex-row-reverse pb-4 mb-4'
                   }
                 >
                   <div
@@ -66,7 +63,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                     )}
                   >
                     <div className="p-4">
-                      <h5 className="font-weight-bold">{p.title}</h5>
+                      <h5 className="display-4" style={{fontSize: '30px'}}>{p.title}</h5>
                       <div
                         dangerouslySetInnerHTML={getMarkdown(
                           p.description.description
@@ -74,7 +71,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                       />
                     </div>
                   </div>
-                  <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-start px-0">
+                  <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-start px-0 align-items-center">
                     {p.images.map((item: any) => {
                       const isAnimation = item.file.url.endsWith('.gif');
 
@@ -87,7 +84,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                         >
                           {isAnimation && (
                             <img
-                              className="card-img-top w-100 h-100"
+                              className="card-img-top w-100"
                               src={item.file.url}
                               alt={item.title}
                               onClick={e => this.toggle(item.file.url)}

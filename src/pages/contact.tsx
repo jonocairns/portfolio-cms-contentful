@@ -7,6 +7,7 @@ import vimeo from '../../static/vimeo_icon_asset.svg';
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
 import { renderTitle } from '.';
+import { Hero } from '../components/hero';
 
 type Props = PageRendererProps;
 
@@ -26,11 +27,12 @@ const Contact = (props: Props) => {
   const isSuccess = props.location.search.indexOf('success') > -1;
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle} hideFooter={true}>
       <SEO title="Ellie Earle" />
-      <div className="pt-4">
-        <div className="pb-4">
-        <h2 className="text-center py-4">{renderTitle('Contact me')}</h2>
+
+      <Hero title={'Contact me'} lead="Get in touch via the form below, or by via social"/>
+      <div className="pt-4 container">
+        <div className="pb-4" >
           <a className="mr-4" href="https://www.facebook.com/elliearle" target="_blank">
             <img style={{width: '40px'}} src={facebook} />
           </a>
@@ -51,6 +53,7 @@ const Contact = (props: Props) => {
 
         {!isSuccess && (
           <form
+          style={{maxWidth: '400px'}}
             name="contact"
             action="/contact?success"
             method="post"
@@ -94,7 +97,7 @@ const Contact = (props: Props) => {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary py-3 px-5">
               Submit
             </button>
           </form>

@@ -7,6 +7,7 @@ import {SEO} from '../components/seo';
 import {renderTitle} from '../pages/index';
 import quoteStart from '../../static/quotation_marks-start.svg';
 import quoteEnd from '../../static/quotation_marks-end.svg';
+import { Hero } from '../components/hero';
 
 interface Props {
   data?: any;
@@ -22,41 +23,25 @@ const LandingPage = ({data}: Props) => {
   const {content} = data.contentfulLandingPage;
 
   return (
-    <Layout>
+    <Layout hideFooter={true}>
       <SEO title={''} />
-      <div className="pt-4">
+      <div>
+    
+
         {content.map((l1: any) => (
           <React.Fragment key={l1.id}>
             {l1.internal.type === 'ContentfulPageSection' && (
               <div key={l1.id} className="d-flex flex-column pb-4">
-                {l1.title && (
-                  <h2 className="text-center py-4">{renderTitle(l1.title)}</h2>
-                )}
-
                 <div>
                   {l1.content.map((l2: any) => (
                     <React.Fragment key={l2.id}>
                       {(l2.internal.type === 'ContentfulQuote' && (
-                        <div className="px-md-5 mx-md-5 text-center d-flex">
-                          <img
-                            style={{width: '35px'}}
-                            className="mx-4 d-block align-self-start"
-                            src={quoteStart}
-                          />
-                          <b>
-                            <i>{l2.quoteSection.quoteSection}</i>
-                          </b>
-                          <img
-                            style={{width: '35px'}}
-                            className="mx-4 d-block align-self-end"
-                            src={quoteEnd}
-                          />
-                        </div>
+                        <Hero title={l1.title} lead={l2.quoteSection.quoteSection} />
                       )) ||
                         (l2.internal.type === 'ContentfulContentSection' && (
-                          <div className="py-2">
-                            <div className="text-center pb-4">
-                              <h4 className="text-primary">{l2.title}</h4>
+                          <div className="py-2 container">
+                            <div className=" pb-4">
+                              <h4 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h4>
                               <h6>{l2.subtitle}</h6>
                             </div>
 
@@ -68,9 +53,9 @@ const LandingPage = ({data}: Props) => {
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulSkillSection' && (
-                          <div>
-                            <div className="text-center">
-                              <h5 className="text-primary">{l2.title}</h5>
+                          <div className="container">
+                            <div className="">
+                              <h5 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h5>
                             </div>
                             <div className="row py-2">
                               {l2.skills.map((s: any) => (
@@ -98,7 +83,7 @@ const LandingPage = ({data}: Props) => {
                                           width: `${Math.abs(s.years / 5) *
                                             100}%`,
                                         }}
-                                        className="progress-bar"
+                                        className="progress-bar bg-info"
                                         role="progressbar"
                                       ></div>
                                     </div>
@@ -109,22 +94,22 @@ const LandingPage = ({data}: Props) => {
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulShortContentList' && (
-                          <div className="mb-4">
+                          <div className="mb-4 container">
                             <div className="text-center">
-                              <h6 className="text-primary">{l2.title}</h6>
+                              <h6 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h6>
                               <span>{l2.subtitle}</span>
                             </div>
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulBulletPointList' && (
-                          <div className="mb-4 d-flex justify-content-center flex-wrap">
+                          <div className="mb-4 d-flex justify-content-center flex-wrap container">
                             {l2.items &&
                               l2.items.map((item: any, index: number) => (
                                 <div
                                   key={item.id}
                                   className="col-12 col-md-6 d-flex"
                                 >
-                                  <div className="text-primary px-4"> • </div>
+                                  <div className="text-primary px-4  display-4" style={{fontSize: '30px'}}> • </div>
                                   <div>{item.title}</div>
                                 </div>
                               ))}
@@ -132,7 +117,6 @@ const LandingPage = ({data}: Props) => {
                         ))}
                     </React.Fragment>
                   ))}
-                  <hr className="mt-5 pt-0 pb-0 mb-0"/>
                 </div>
               </div>
             )}

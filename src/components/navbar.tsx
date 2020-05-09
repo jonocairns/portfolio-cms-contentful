@@ -11,6 +11,7 @@ import {
   NavItem,
 } from 'reactstrap';
 
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import logo from '../../static/brand_logo_trans.png';
 // import title from '../../static/title.png';
 
@@ -47,37 +48,21 @@ export default class Navigation extends React.Component<{}, State> {
     );
 
     return (
-      <div style={{backgroundColor: '#424244'}} className="fixed-top">
-        <Navbar className="container py-4" dark expand="md">
-          <NavbarBrand
-            href="#"
-            onClick={e => {
-              e.preventDefault();
-
-              navigate('/');
-            }}
-          >
-            <h2 className="d-none d-md-block">
-              {title}
-              <img
-                src={logo}
-                className="ml-2 d-none d-md-inline"
-                style={{maxWidth: '40px'}}
-              />
-            </h2>
-            <h4 className="d-none d-sm-block d-md-none">{title}</h4>
-            <h6 className="d-sm-none">{title}</h6>
-          </NavbarBrand>
+      <div style={{backgroundColor: 'white'}} className="fixed-top">
+        <Navbar className="container py-4" light expand="md">
+          
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               {navItems.map((n, i: number) => (
                 <React.Fragment key={n.path}>
-                  <NavItem>
-                  <Link to={n.path} className="nav-link text-white d-inline">
+                  <NavItem className="py-2">
+                
+                  <AniLink paintDrip hex="#fff"   to={n.path} className="nav-link text-dark d-inline">
+
                     {n.title}
-                  </Link>
-                  {i !== navItems.length - 1 && <span className="d-none d-md-inline text-white">|</span>}
+                  </AniLink>
+                  {i !== navItems.length - 1 && <span className="d-none d-md-inline text-black">|</span>}
                 </NavItem>
                 </React.Fragment>
               ))}

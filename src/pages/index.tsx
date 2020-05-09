@@ -4,6 +4,8 @@ import React from 'react';
 import {Layout} from '../components/layout';
 import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
+import { Hero } from '../components/hero';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
 type Props = PageRendererProps;
 
@@ -93,19 +95,17 @@ const Index = (props: Props) => {
   }));
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={props.location} title={siteTitle} hideFooter={true}>
       <SEO title="Ellie Earle" />
-      <div className="d-flex justify-content-center flex-wrap py-4">
-        {collections.map((c: any) => (
-          <div
-            key={c.id}
-            onClick={e => {
-              e.preventDefault();
 
-              navigate(c.slug);
-            }}
-            className="card mx-2 border-0 text-center hoverOpacity my-3"
-            style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer'}}
+      <Hero title="Ellie Earle" lead="Multidisciplinary designer who hacks at, makes and occasionally breaks things."/>
+
+      <div className="d-flex justify-content-center flex-wrap pb-4">
+        {collections.map((c: any) => (
+          <AniLink key={c.id} paintDrip hex="#fff" to={c.slug} 
+          
+            className="card mx-2 border-0 text-center hoverOpacity my-3 text-dark"
+            style={{minWidth: '24rem', maxWidth: '24rem', cursor: 'pointer', textDecoration: 'none'}}
           >
             <ResponsiveSquare id={`rs-${c.id}`} className="overflow-hidden">
               <img
@@ -120,9 +120,9 @@ const Index = (props: Props) => {
                 alt="Card image cap"
               />
             </ResponsiveSquare>
-            <h3 className="pt-2">{renderTitle(c.title)}</h3>
+            <div className="pt-2 display-4" style={{fontSize: '32px'}}>{c.title}</div>
 
-          </div>
+            </AniLink>
         ))}
       </div>
     </Layout>
