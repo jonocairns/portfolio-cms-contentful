@@ -9,7 +9,7 @@ export const Layout = (props: any) => {
 
   return (
     <React.Fragment>
-      <Navigation />
+      <Navigation {...props} />
       <div style={{marginTop: '70px'}}   data-sal="slide-up"
   data-sal-delay="300"
   data-sal-easing="ease">

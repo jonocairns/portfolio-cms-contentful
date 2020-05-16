@@ -4,7 +4,6 @@ import {
   Nav,
   Navbar,
   NavbarToggler,
-  NavItem,
   NavbarBrand,
 } from 'reactstrap';
 
@@ -22,9 +21,9 @@ const navItems = [
   {path: '/contact', title: 'Contact'},
 ];
 
-const getHex = () => {
-  if(location) {
-    switch(location.pathname){
+const getHex = (loc: any) => {
+  if(loc) {
+    switch(loc.pathname){
       case '/contact': 
         return '#d6c8e5';
       case '/about':
@@ -36,13 +35,14 @@ const getHex = () => {
   return '#ffdfe3';
 }
 
-const isActive = (path: string) => {
-  const currentPath = `/${location.pathname.split('/').join('')}`;
-  return (location && currentPath === path) || (!navItems.some(ni => ni.path === currentPath) && path === '/');
+const isActive = (path: string, loc: any) => {
+  const currentPath = `/${loc.pathname.split('/').join('')}`;
+  const doesNotMatch = !navItems.some(ni => ni.path === currentPath);
+  return (loc && currentPath === path) || (doesNotMatch && path === '/');
 }
 
-export default class Navigation extends React.Component<{}, State> {
-  constructor(props: {}) {
+export default class Navigation extends React.Component<{ location: any}, State> {
+  constructor(props: { location: any}) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
@@ -68,7 +68,7 @@ export default class Navigation extends React.Component<{}, State> {
                 <div key={n.path}>
  
                 
-                  <AniLink paintDrip hex={getHex()}  to={n.path}  className={classnames('nav-link text-dark d-inline py-2', { 'nav-active': isActive(n.path)})}>
+                  <AniLink paintDrip hex={getHex(this.props.location)}  to={n.path}  className={classnames('nav-link text-dark d-inline py-2', { 'nav-active': isActive(n.path, this.props.location)})}>
 
                     {n.title}
                   </AniLink>
