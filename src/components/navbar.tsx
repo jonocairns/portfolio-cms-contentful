@@ -21,6 +21,17 @@ const navItems = [
   {path: '/contact', title: 'Contact'},
 ];
 
+const getHex = () => {
+  switch(location.pathname){
+    case '/contact': 
+      return '#d6c8e5';
+    case '/about':
+    return '#bbd661';
+    default: 
+      return '#ffdfe3';
+  }
+}
+
 export default class Navigation extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
@@ -46,9 +57,10 @@ export default class Navigation extends React.Component<{}, State> {
             <Nav className="ml-auto" navbar>
               {navItems.map((n, i: number) => (
                 <React.Fragment key={n.path}>
-                  <NavItem className="py-2">
+ 
+                  <NavItem className="py-2" >
                 
-                  <AniLink paintDrip hex="#fff"   to={n.path} className="nav-link text-dark d-inline">
+                  <AniLink paintDrip hex={getHex()}  to={n.path} activeClassName="nav-active" partiallyActive={location.pathname !== '/about' && location.pathname !== '/contact'}  className="nav-link text-dark d-inline">
 
                     {n.title}
                   </AniLink>
