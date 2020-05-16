@@ -21,7 +21,7 @@ const navItems = [
   {path: '/contact', title: 'Contact'},
 ];
 
-const getHex = (loc: any) => {
+export const getHex = (loc: any) => {
   if(loc) {
     switch(loc.pathname){
       case '/contact': 
@@ -60,7 +60,7 @@ export default class Navigation extends React.Component<{ location: any}, State>
     return (
       <div style={{backgroundColor: 'white'}} className="fixed-top">
         <Navbar className="container py-4" light expand="md">
-    <NavbarBrand><AniLink paintDrip hex="#fff"   to={'/'}><img src={logo} style={{width:'30px'}}/></AniLink></NavbarBrand>
+    <NavbarBrand><AniLink paintDrip hex={getHex(this.props.location)}   to={'/'}><img src={logo} style={{width:'30px'}}/></AniLink></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

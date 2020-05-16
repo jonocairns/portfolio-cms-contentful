@@ -1,4 +1,4 @@
-import {graphql, navigate, PageRendererProps, useStaticQuery} from 'gatsby';
+import {graphql, PageRendererProps, useStaticQuery} from 'gatsby';
 import React from 'react';
 
 import {Layout} from '../components/layout';
@@ -6,6 +6,7 @@ import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
 import { Hero } from '../components/hero';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import { getHex } from '../components/navbar';
 
 type Props = PageRendererProps;
 
@@ -102,7 +103,7 @@ const Index = (props: Props) => {
 
       <div className="container d-flex justify-content-between flex-wrap py-4 mt-4">
         {collections.map((c: any) => (
-          <AniLink key={c.id} paintDrip hex="#fff" to={c.slug} 
+          <AniLink key={c.id} paintDrip hex={getHex(props.location)} to={c.slug} 
           
             className="card mx-4 border-0 text-center hoverOpacity my-3 text-dark"
             style={{minWidth: '10rem', maxWidth: '10rem', cursor: 'pointer', textDecoration: 'none'}}
