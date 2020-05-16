@@ -88,7 +88,7 @@ module.exports = {
         icon: `static/favicon-32x32.png`,
       },
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     // {
