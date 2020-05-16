@@ -11,6 +11,7 @@ import { Hero } from '../components/hero';
 
 interface Props {
   data?: any;
+  location: any;
 }
 
 interface State {
@@ -36,7 +37,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
     const {isOpen, selectedImage} = this.state;
 
     return (
-      <Layout>
+      <Layout location={this.props.location}>
         <SEO title={title} />
         <div>
           <Modal isOpen={isOpen} toggle={this.toggle as any} size="lg">

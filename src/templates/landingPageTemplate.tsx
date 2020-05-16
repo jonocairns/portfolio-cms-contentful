@@ -8,6 +8,7 @@ import { Hero } from '../components/hero';
 
 interface Props {
   data?: any;
+  location: any;
 }
 
 export const getMarkdown = (input: any) => {
@@ -16,11 +17,11 @@ export const getMarkdown = (input: any) => {
   return {__html: rawMarkup};
 };
 
-const LandingPage = ({data}: Props) => {
+const LandingPage = ({data, location}: Props) => {
   const {content} = data.contentfulLandingPage;
 
   return (
-    <Layout hideFooter={true}>
+    <Layout hideFooter={true} location={location}>
       <SEO title={''} />
       <div>
     
