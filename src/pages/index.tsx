@@ -104,8 +104,8 @@ const Index = (props: Props) => {
         {collections.map((c: any) => (
           <AniLink key={c.id} paintDrip hex="#fff" to={c.slug} 
           
-            className="card mx-2 border-0 text-center hoverOpacity my-3 text-dark"
-            style={{minWidth: '18rem', maxWidth: '18rem', cursor: 'pointer', textDecoration: 'none'}}
+            className="card mx-4 border-0 text-center hoverOpacity my-3 text-dark"
+            style={{minWidth: '8rem', maxWidth: '8rem', cursor: 'pointer', textDecoration: 'none'}}
           >
             <ResponsiveSquare id={`rs-${c.id}`} className="overflow-hidden">
               <img
@@ -120,7 +120,7 @@ const Index = (props: Props) => {
                 alt="Card image cap"
               />
             </ResponsiveSquare>
-            <div className="pt-2 display-4" style={{fontSize: '32px'}}>{c.title}</div>
+            <div className="pt-2 display-4" style={{fontSize: '22px'}}>{c.title}</div>
 
             </AniLink>
         ))}

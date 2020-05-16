@@ -4,9 +4,6 @@ import React from 'react';
 
 import {Layout} from '../components/layout';
 import {SEO} from '../components/seo';
-import {renderTitle} from '../pages/index';
-import quoteStart from '../../static/quotation_marks-start.svg';
-import quoteEnd from '../../static/quotation_marks-end.svg';
 import { Hero } from '../components/hero';
 
 interface Props {
@@ -28,20 +25,23 @@ const LandingPage = ({data}: Props) => {
       <div>
     
 
-        {content.map((l1: any) => (
+        {content.map((l1: any, i: number) => (
           <React.Fragment key={l1.id}>
             {l1.internal.type === 'ContentfulPageSection' && (
               <div key={l1.id} className="d-flex flex-column pb-4">
                 <div>
+                {i !== 0 && <h2 className="container display-4"  style={{fontSize: '30px'}}>{l1.title}</h2>}
+
+
                   {l1.content.map((l2: any) => (
                     <React.Fragment key={l2.id}>
                       {(l2.internal.type === 'ContentfulQuote' && (
-                        <Hero title={l1.title} lead={l2.quoteSection.quoteSection} />
+                        <Hero title={l1.title} lead={l2.quoteSection.quoteSection} className="alt-jumbo" />
                       )) ||
                         (l2.internal.type === 'ContentfulContentSection' && (
                           <div className="py-2 container">
                             <div className=" pb-4">
-                              <h4 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h4>
+                              <h4 className="text-primary font-weight-bold" style={{fontSize: '18px'}}>{l2.title}</h4>
                               <h6>{l2.subtitle}</h6>
                             </div>
 
@@ -55,7 +55,7 @@ const LandingPage = ({data}: Props) => {
                         (l2.internal.type === 'ContentfulSkillSection' && (
                           <div className="container">
                             <div className="">
-                              <h5 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h5>
+                              <h5 className="text-primary"  style={{fontSize: '18px'}}>{l2.title}</h5>
                             </div>
                             <div className="row py-2">
                               {l2.skills.map((s: any) => (
@@ -69,10 +69,10 @@ const LandingPage = ({data}: Props) => {
 
                                   <div className="col-6">
                                     <div
-                                      className="progress bg-dark"
+                                      className="progress bg-wellow"
                                       style={{height: '30px'}}
                                     >
-                                      <div className="position-absolute text-center text-white w-100 mt-1 pr-4">
+                                      <div className="position-absolute text-center w-100 mt-1 pr-4">
                                         <span>
                                           {s.years} year{s.years !== 1 && 's'}
                                         </span>
@@ -83,7 +83,7 @@ const LandingPage = ({data}: Props) => {
                                           width: `${Math.abs(s.years / 5) *
                                             100}%`,
                                         }}
-                                        className="progress-bar bg-info"
+                                        className="progress-bar bg-gween"
                                         role="progressbar"
                                       ></div>
                                     </div>
@@ -95,8 +95,9 @@ const LandingPage = ({data}: Props) => {
                         )) ||
                         (l2.internal.type === 'ContentfulShortContentList' && (
                           <div className="mb-4 container">
-                            <div className="text-center">
-                              <h6 className="text-primary display-4" style={{fontSize: '30px'}}>{l2.title}</h6>
+
+                            <div className="">
+                              <h6 className="text-primary"  style={{fontSize: '18px'}}>{l2.title}</h6>
                               <span>{l2.subtitle}</span>
                             </div>
                           </div>
@@ -109,7 +110,7 @@ const LandingPage = ({data}: Props) => {
                                   key={item.id}
                                   className="col-12 col-md-6 d-flex"
                                 >
-                                  <div className="text-primary px-4  display-4" style={{fontSize: '30px'}}> • </div>
+                                  <div className="text-primary px-4" style={{fontSize: '18px'}}> • </div>
                                   <div>{item.title}</div>
                                 </div>
                               ))}

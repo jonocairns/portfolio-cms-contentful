@@ -6,7 +6,6 @@ import {Modal} from 'reactstrap';
 import {Layout} from '../components/layout';
 import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
-import {renderTitle} from '../pages/index';
 import {getMarkdown} from './landingPageTemplate';
 import { Hero } from '../components/hero';
 

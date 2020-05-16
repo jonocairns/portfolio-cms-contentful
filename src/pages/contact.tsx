@@ -30,7 +30,7 @@ const Contact = (props: Props) => {
     <Layout location={props.location} title={siteTitle} hideFooter={true}>
       <SEO title="Ellie Earle" />
 
-      <Hero title={'Contact me'} lead="Get in touch via the form below, or by via social"/>
+      <Hero title={'Contact me'} lead="Get in touch via the form below, or by via social" className="contact-jumbo"/>
       <div className="pt-4 container">
         <div className="pb-4" >
           <a className="mr-4" href="https://www.facebook.com/elliearle" target="_blank">
@@ -53,7 +53,7 @@ const Contact = (props: Props) => {
 
         {!isSuccess && (
           <form
-          style={{maxWidth: '400px'}}
+          style={{maxWidth: '800px'}}
             name="contact"
             action="/contact?success"
             method="post"
@@ -97,7 +97,7 @@ const Contact = (props: Props) => {
               ></textarea>
             </div>
 
-            <button type="submit" className="btn btn-primary py-3 px-5">
+            <button type="submit" className="btn btn-primary py-2 px-5">
               Submit
             </button>
           </form>

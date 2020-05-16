@@ -1,19 +1,15 @@
-import classnames from 'classnames';
-import {Link, navigate} from 'gatsby';
-import {every} from 'lodash';
 import React from 'react';
 import {
   Collapse,
   Nav,
   Navbar,
-  NavbarBrand,
   NavbarToggler,
   NavItem,
+  NavbarBrand,
 } from 'reactstrap';
 
 import AniLink from "gatsby-plugin-transition-link/AniLink"
-import logo from '../../static/brand_logo_trans.png';
-// import title from '../../static/title.png';
+import logo from '../../static/logo-design.png';
 
 interface State {
   isOpen: boolean;
@@ -40,17 +36,11 @@ export default class Navigation extends React.Component<{}, State> {
     });
   };
   render() {
-    const title = (
-      <React.Fragment>
-        <span className="font-weight-bold">Ellie Earle </span>
-        <span className="font-weight-light">| Graphic Design</span>
-      </React.Fragment>
-    );
 
     return (
       <div style={{backgroundColor: 'white'}} className="fixed-top">
         <Navbar className="container py-4" light expand="md">
-          
+    <NavbarBrand><AniLink paintDrip hex="#fff"   to={'/'}><img src={logo} style={{width:'30px'}}/></AniLink></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
