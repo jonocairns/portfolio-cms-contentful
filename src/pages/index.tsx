@@ -100,12 +100,12 @@ const Index = (props: Props) => {
 
       <Hero title="Ellie Earle" lead="Multidisciplinary designer. Food and caffeine driven. Will fight you for a donut."/>
 
-      <div className="d-flex justify-content-center flex-wrap pb-4">
+      <div className="container d-flex justify-content-between flex-wrap py-4 mt-4">
         {collections.map((c: any) => (
           <AniLink key={c.id} paintDrip hex="#fff" to={c.slug} 
           
             className="card mx-4 border-0 text-center hoverOpacity my-3 text-dark"
-            style={{minWidth: '8rem', maxWidth: '8rem', cursor: 'pointer', textDecoration: 'none'}}
+            style={{minWidth: '10rem', maxWidth: '10rem', cursor: 'pointer', textDecoration: 'none'}}
           >
             <ResponsiveSquare id={`rs-${c.id}`} className="overflow-hidden">
               <img
