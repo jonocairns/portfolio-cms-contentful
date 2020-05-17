@@ -63,12 +63,12 @@ export default class Navigation extends React.Component<{ location: any}, State>
     <NavbarBrand><AniLink paintDrip hex={getHex(this.props.location)}   to={'/'}><img src={logo} style={{width:'30px'}}/></AniLink></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
+            <Nav className="ml-auto mt-2 mt-md-0" navbar>
               {navItems.map((n, i: number) => (
-                <div key={n.path}>
+                <div key={n.path} className="py-2">
  
                 
-                  <AniLink paintDrip hex={getHex(this.props.location)}  to={n.path}  className={classnames('nav-link text-dark d-inline py-2', { 'nav-active': isActive(n.path, this.props.location)})}>
+                  <AniLink paintDrip hex={getHex(this.props.location)}  to={n.path}  className={classnames('nav-link text-dark d-inline', { 'nav-active': isActive(n.path, this.props.location)})}>
 
                     {n.title}
                   </AniLink>

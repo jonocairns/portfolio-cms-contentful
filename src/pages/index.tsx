@@ -101,7 +101,7 @@ const Index = (props: Props) => {
 
       <Hero title="Ellie Earle" lead="Multidisciplinary designer. Food and caffeine driven. Will fight you for a donut."/>
 
-      <div className="container d-flex justify-content-between flex-wrap py-4 mt-4">
+      <div className="container d-flex justify-content-around flex-wrap py-4 mt-4">
         {collections.map((c: any) => (
           <AniLink key={c.id} paintDrip hex={getHex(props.location)} to={c.slug} 
           
