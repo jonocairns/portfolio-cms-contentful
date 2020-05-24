@@ -42,7 +42,7 @@ const LandingPage = ({data, location}: Props) => {
                         (l2.internal.type === 'ContentfulContentSection' && (
                           <div className="py-2 container">
                             <div className=" pb-4">
-                              <h4 className="text-primary font-weight-bold" style={{fontSize: '18px'}}>{l2.title}</h4>
+                              <h4 className="font-weight-bold" style={{fontSize: '18px'}}>{l2.title}</h4>
                               <h6>{l2.subtitle}</h6>
                             </div>
 
@@ -56,7 +56,7 @@ const LandingPage = ({data, location}: Props) => {
                         (l2.internal.type === 'ContentfulSkillSection' && (
                           <div className="container">
                             <div className="">
-                              <h5 className="text-primary"  style={{fontSize: '18px'}}>{l2.title}</h5>
+                              <h5 style={{fontSize: '18px'}}>{l2.title}</h5>
                             </div>
                             <div className="row py-2">
                               {l2.skills.map((s: any) => (
@@ -97,8 +97,8 @@ const LandingPage = ({data, location}: Props) => {
                         (l2.internal.type === 'ContentfulShortContentList' && (
                           <div className="mb-4 container">
 
-                            <div className="">
-                              <h6 className="text-primary"  style={{fontSize: '18px'}}>{l2.title}</h6>
+                            <div>
+                              <h6 style={{fontSize: '18px'}}>{l2.title}</h6>
                               <span>{l2.subtitle}</span>
                             </div>
                           </div>
@@ -111,7 +111,7 @@ const LandingPage = ({data, location}: Props) => {
                                   key={item.id}
                                   className="col-12 col-md-6 d-flex"
                                 >
-                                  <div className="text-primary px-4" style={{fontSize: '18px'}}> • </div>
+                                  <div className="px-4" style={{fontSize: '18px'}}> • </div>
                                   <div>{item.title}</div>
                                 </div>
                               ))}
