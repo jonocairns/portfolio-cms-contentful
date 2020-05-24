@@ -61,7 +61,7 @@ const Navigation = (props: { location: any, data: any}) => {
                 Work
               </DropdownToggle>
               <DropdownMenu left className="py-0 border-0">
-                {collections.map((c: any) => <div className="py-3 pl-5 pl-md-3">
+                {collections.map((c: any) => <div className="p-3 pl-5 pl-md-3" style={{whiteSpace: 'nowrap'}}>
                   <AniLink paintDrip hex={getHex(props.location)}  to={c.slug} activeClassName="nav-active"  className={classnames('nav-link text-dark d-inline')}>
                   {c.title}
                   </AniLink>
