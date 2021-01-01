@@ -46,11 +46,11 @@ const LandingPage = ({data, location}: Props) => {
                               <h6>{l2.subtitle}</h6>
                             </div>
 
-                            <div
+                            {l2.content && <div
                               dangerouslySetInnerHTML={getMarkdown(
                                 l2.content.content
                               )}
-                            />
+                            />}
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulSkillSection' && (
