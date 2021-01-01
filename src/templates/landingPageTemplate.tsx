@@ -29,7 +29,7 @@ const LandingPage = ({data, location}: Props) => {
         {content.map((l1: any, i: number) => (
           <React.Fragment key={l1.id}>
             {l1.internal.type === 'ContentfulPageSection' && (
-              <div key={l1.id} className="d-flex flex-column pb-4">
+              <div key={l1.id} className="d-flex flex-column py-2">
                 <div>
                 {i !== 0 && <h2 className="container display-4"  style={{fontSize: '30px'}}>{l1.title}</h2>}
 
@@ -104,7 +104,9 @@ const LandingPage = ({data, location}: Props) => {
                           </div>
                         )) ||
                         (l2.internal.type === 'ContentfulBulletPointList' && (
-                          <div className="mb-4 d-flex justify-content-center flex-wrap container">
+                          <><div className="my-4 container">
+                            <h6 style={{fontSize: '18px', fontWeight: 'bold'}}>{l2.title}</h6></div>
+                           <div className="my-2 d-flex flex-wrap container">
                             {l2.items &&
                               l2.items.map((item: any, index: number) => (
                                 <div
@@ -116,6 +118,8 @@ const LandingPage = ({data, location}: Props) => {
                                 </div>
                               ))}
                           </div>
+                           </>
+                         
                         ))}
                     </React.Fragment>
                   ))}
@@ -124,6 +128,14 @@ const LandingPage = ({data, location}: Props) => {
             )}
           </React.Fragment>
         ))}
+      </div>
+
+      <div className="my-4 container">
+        <div className="d-flex justify-content-center align-items-center">
+          <button onClick={() => {
+            window.open('https://www.linkedin.com/in/ellieearleonlinkedin/', '_blank');
+          }} className="btn btn-primary" style={{backgroundColor: '#bed964'}}>View my CV</button>
+        </div>
       </div>
     </Layout>
   );
