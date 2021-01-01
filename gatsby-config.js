@@ -58,25 +58,6 @@ module.exports = {
     //   },
     // },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Source Sans Pro`,
-            variants: ['sans-serif']
-          },
-          {
-            family: `Fascinate`,
-            variants: ['cursive']
-          },
-          {
-            family: `Anton`,
-            variants: ['sans-serif']
-          }
-        ],
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Ellie Earle | Graphic Design`,
