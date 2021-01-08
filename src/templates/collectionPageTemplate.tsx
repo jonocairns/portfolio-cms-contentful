@@ -74,6 +74,19 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                   <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-start px-0 align-items-center">
                     {p.images.map((item: any) => {
                       const isAnimation = item.file.url.endsWith('.gif');
+                      const isMovie = item.file.url.endsWith('.mp4');
+
+                      if(isMovie) {
+
+                        return (
+                          <div key={item.id} className="col-12 px-0">
+                          <video width="100%" controls>
+                            <source src={item.file.url} type="video/mp4" />
+                            Your browser does not support video.
+                          </video>
+                          </div>
+                        )
+                      }
 
                       return (
                         <div
