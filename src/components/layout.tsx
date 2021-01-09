@@ -17,7 +17,7 @@ export const Layout = (props: any) => {
         {!hideFooter && <footer className="pt-4 container mt-5 ">
           <p className="small text-center" style={{fontSize: '10px'}}>
             <i>
-            The work displayed on this site (with the exception of Ellie Earle Graphic Designer & Aubri) was created by me while working under the employment of either Trade Depot Ltd, UP Education/ACG Education, South Sea Cruises or CBRE. All the finished artwork and any assets/photography/logos used in their creation belong fully to their respective company. All logos are copyrighted and were not conceived or created by me (except Aubri/Ellie Earle Graphic Design). My credits for any mockups used can be found in italics at the bottom of each section (if applicable).
+            The work displayed on this site (with the exception of Ellie Earle Graphic Designer & Aubri) was created by me while working under the respective employment of these companies, and is displayed with their permission. Logos for Be Intent, Trade Depot, UP Education, ACG Education, South Sea Cruises/Malamala Beach Club and CBRE are copyrighted and belong to their respective companies.
             </i>
           </p>
           <p className="text-center" style={{fontSize: '10px'}}>© {new Date().getFullYear()} Ellie Earle</p>

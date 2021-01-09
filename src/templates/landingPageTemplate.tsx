@@ -56,7 +56,7 @@ const LandingPage = ({data, location}: Props) => {
                         (l2.internal.type === 'ContentfulSkillSection' && (
                           <div className="container">
                             <div className="">
-                              <h5 style={{fontSize: '18px'}}>{l2.title}</h5>
+                              <h5 style={{fontSize: '18px', fontWeight: 'bold'}}>{l2.title}</h5>
                             </div>
                             <div className="row py-2">
                               {l2.skills.map((s: any) => (
@@ -98,7 +98,7 @@ const LandingPage = ({data, location}: Props) => {
                           <div className="mb-4 container">
 
                             <div>
-                              <h6 style={{fontSize: '18px'}}>{l2.title}</h6>
+                              <h6 style={{fontSize: '18px', fontWeight: 'bold'}}>{l2.title}</h6>
                               <span>{l2.subtitle}</span>
                             </div>
                           </div>
@@ -133,8 +133,8 @@ const LandingPage = ({data, location}: Props) => {
       <div className="my-4 container">
         <div className="d-flex justify-content-center align-items-center">
           <button onClick={() => {
-            window.open('https://www.linkedin.com/in/ellieearleonlinkedin/', '_blank');
-          }} className="btn btn-primary" style={{backgroundColor: '#bed964'}}>View my CV</button>
+            window.open('https://drive.google.com/file/d/1vsC7zQnROOKH5EjyH-mfE4vyltclP0gZ/view', '_blank');
+          }} className="btn" style={{backgroundColor: '#bed964'}}>View my CV</button>
         </div>
       </div>
     </Layout>
