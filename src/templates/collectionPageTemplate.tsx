@@ -95,12 +95,13 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                           className={classnames('p-2 col-12 ', p.images.length > 1 && 'col-md-6')}
                         >
                           {isAnimation && (
-                            <img
+                            <div onClick={e => this.toggle(item.file.url)}>
+                            <Img
                               className="card-img-top w-100"
-                              src={item.file.url}
+                              fluid={item.fluid}
                               alt={item.title}
-                              onClick={e => this.toggle(item.file.url)}
                             />
+                            </div>
                           )}
 
                           {!isAnimation && (
