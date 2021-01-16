@@ -57,6 +57,7 @@ module.exports = {
     //     //trackingId: `ADD YOUR TRACKING ID HERE`,
     //   },
     // },
+    `gatsby-transformer-sharp`, `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

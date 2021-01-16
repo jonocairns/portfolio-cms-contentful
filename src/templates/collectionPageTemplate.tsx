@@ -8,6 +8,7 @@ import {ResponsiveSquare} from '../components/responsiveSquare';
 import {SEO} from '../components/seo';
 import {getMarkdown} from './landingPageTemplate';
 import { Hero } from '../components/hero';
+import Img from 'gatsby-image';
 
 interface Props {
   data?: any;
@@ -41,7 +42,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
         <SEO title={title} />
         <div>
           <Modal isOpen={isOpen} toggle={this.toggle as any} size="lg">
-            <img className="w-100 h-100" src={selectedImage} />
+            <img className="w-100 h-100 p-4" src={selectedImage} />
           </Modal>
 
         <Hero title={title}lead={description}  />
@@ -91,9 +92,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                       return (
                         <div
                           key={item.id}
-                          className={classnames('col-12 px-0', {
-                            'col-md-6': isAnimation,
-                          })}
+                          className={classnames('p-2 col-12 ', p.images.length > 1 && 'col-md-6')}
                         >
                           {isAnimation && (
                             <img
@@ -113,18 +112,19 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                                 large: '100%',
                               }}
                             >
-                              <img
-                                onClick={e => this.toggle(item.file.url)}
-                                className="card-img-top h-100 w-100"
-                                style={{
-                                  objectFit: 'cover',
-                                  objectPosition: 'center',
-                                  fontFamily:
-                                    "'object-fit: cover; object-position: center;'",
-                                }}
-                                src={item.file.url}
-                                alt={item.title}
-                              />
+                             <div onClick={e => this.toggle(item.file.url)}>
+                              <Img
+                                  className="card-img-top h-100 w-100"
+                                  style={{
+                                    objectFit: 'cover',
+                                    objectPosition: 'center',
+                                    fontFamily:
+                                      "'object-fit: cover; object-position: center;'",
+                                  }}
+                                  fluid={item.fluid}
+                                  alt={item.title}
+                                />
+                              </div>
                             </ResponsiveSquare>
                           )}
                         </div>
@@ -153,6 +153,9 @@ export const pageQuery = graphql`
         }
         images {
           id
+          fluid(maxWidth: 1800) {
+            ...GatsbyContentfulFluid
+          }
           file {
             url
           }
