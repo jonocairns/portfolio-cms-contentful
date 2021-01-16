@@ -12,7 +12,7 @@ export const FadeLink = (props: Props) => {
   const {children, ...linkProps} = props;
 
   return (
-    <AniLink fade={true} duration={FADE_TIME} {...linkProps}>
+    <AniLink fade={true}  duration={FADE_TIME} {...linkProps}>
       {children}
     </AniLink>
   );

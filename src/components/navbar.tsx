@@ -62,7 +62,7 @@ const Navigation = (props: { location: any, data: any}) => {
               </DropdownToggle>
               <DropdownMenu left className="py-0 border-0">
                 {collections.map((c: any) => <div className="p-3 pl-5 pl-md-3" style={{whiteSpace: 'nowrap'}}>
-                  <AniLink paintDrip hex={getHex(props.location)}  to={c.slug} activeClassName="nav-active"  className={classnames('nav-link text-dark d-inline')}>
+                  <AniLink paintDrip duration={0.5} hex={getHex(props.location)}  to={c.slug} activeClassName="nav-active"  className={classnames('nav-link text-dark d-inline')}>
                   {c.title}
                   </AniLink>
                 </div>)}
@@ -70,7 +70,7 @@ const Navigation = (props: { location: any, data: any}) => {
               </DropdownMenu>
             </UncontrolledDropdown> : 
 
-                <AniLink paintDrip hex={getHex(props.location)}  to={n.path} activeClassName="nav-active" className={classnames('nav-link text-dark d-inline  py-2 px-3')}>
+                <AniLink paintDrip duration={0.5} hex={getHex(props.location)}  to={n.path} activeClassName="nav-active" className={classnames('nav-link text-dark d-inline  py-2 px-3')}>
 
                   {n.title}
                 </AniLink>}
