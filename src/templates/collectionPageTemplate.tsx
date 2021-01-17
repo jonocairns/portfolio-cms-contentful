@@ -155,7 +155,7 @@ export const pageQuery = graphql`
         images {
           id
           fluid(maxWidth: 1800) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyContentfulFluid_withWebp_noBase64
           }
           file {
             url
