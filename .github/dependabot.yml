@@ -1,0 +1,34 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "17:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@graphql-codegen/typescript-react-apollo"
+    versions:
+    - 2.2.1
+    - 2.2.2
+    - 2.2.3
+  - dependency-name: "@graphql-codegen/typescript-operations"
+    versions:
+    - 1.17.13
+    - 1.17.14
+    - 1.17.15
+  - dependency-name: "@graphql-codegen/typescript"
+    versions:
+    - 1.20.0
+    - 1.20.2
+    - 1.21.0
+    - 1.21.1
+  - dependency-name: lodash
+    versions:
+    - 4.17.20
+  - dependency-name: elliptic
+    versions:
+    - 6.5.3
+  - dependency-name: "@types/classnames"
+    versions:
+    - 2.2.11
