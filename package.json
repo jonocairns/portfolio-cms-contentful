@@ -71,7 +71,7 @@
     "gatsby-source-contentful": "^2.1.3",
     "graphql": "^14.4.2",
     "graphql-tag": "^2.10.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "prettier": "^1.18.2",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
