@@ -73,7 +73,7 @@ export default class CollectionPage extends React.PureComponent<Props, State> {
                     </div>
                   </div>
                   <div className="col-12 col-lg-6 d-flex flex-wrap justify-content-center justify-content-lg-start px-0 align-items-center">
-                    {p.images.map((item: any) => {
+                    {p.images?.map((item: any) => {
                       const isAnimation = item.file.url.endsWith('.gif');
                       const isMovie = item.file.url.endsWith('.mp4');
 
